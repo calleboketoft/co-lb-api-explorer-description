@@ -4,22 +4,35 @@ _Add custom API explorer title and description_
 
 `npm install --save git+https://github.com/calleboketoft/co-lb-api-explorer-description.git`
 
-Modify the file `server/boot/explorer.js` like this:
+Remove the following part from `component-config.json`:
+
+```json
+"loopback-component-explorer": {
+  "mountPath": "/explorer"
+}
+```
+
+Add the file `server/boot/explorer.js`:
 
 ```javascript
-...
-let coApiDesc = require('co-lb-api-explorer-description')
-let headerText = 'My awesome API'
-let descriptionHTML = `
-  <h1>Some API</h1>
-  <p>Any HTML works here</p>
-`
-let text = coApiDesc.getDescription(headerText, descriptionHTML)
+var explorer = require('loopback-component-explorer')
+var coApiDesc = require('co-lb-api-explorer-description')
 
-let explorerApp = explorer(server, {
-  basePath: restApiRoot,
-  apiInfo: {
-    description: text
-  }
+module.exports = function(server) {
+  var headerText = 'My awesome API'
+  var descriptionHTML = `
+    <h1>Some API</h1>
+    <p>Any HTML works here</p>
+  `
+  var text = coApiDesc.getDescription(headerText, descriptionHTML)
+
+  explorer(server, {
+    basePath: server.get('restApiRoot'),
+    apiInfo: {
+      description: text
+    },
+    mountPath: '/explorer'
+  })
 }
+
 ```
