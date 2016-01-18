@@ -1,0 +1,20 @@
+{
+  "name": "co-lb-api-explorer-description",
+  "version": "0.0.1",
+  "description": "_Add custom API explorer title and description_",
+  "main": "co-lb-api-explorer-description.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calleboketoft/co-lb-api-explorer-description.git"
+  },
+  "keywords": [],
+  "author": "Carl-Ola Boketoft",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/calleboketoft/co-lb-api-explorer-description/issues"
+  },
+  "homepage": "https://github.com/calleboketoft/co-lb-api-explorer-description#readme"
+}
